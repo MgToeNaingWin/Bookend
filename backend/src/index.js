@@ -13,7 +13,8 @@ app.use("/api/auth/", authRoutes);
 app.use("/api/books/", bookRoutes);
 
 
-app.listen(Port, ()=>{
+app.listen(Port,'0.0.0.0', ()=>{
+    
     console.log(`The server is running on ${Port}`);
     connectDB(); 
 })

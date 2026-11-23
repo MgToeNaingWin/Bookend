@@ -20,7 +20,7 @@ router.post("/register", async (req, res) =>{
             return res.status(400).json({message : "The Password should be at least 6!"});
         }
         if(username.length<2){
-            return res.status(400).json({message : "The Username should be at least 3!"});
+            return res.status(400).json({message : "The Username should be at least 2!"});
         }
         //User Already exist
         const existingUser = await User.findOne({email});
@@ -62,9 +62,9 @@ router.post("/login",async (req, res) =>{
 
     //Check for User
     const user = await User.findOne({email});
-    if(!user) return res.status(400).json({message :"User does not exists!"});
+    if(!user) return res.status(401).json({message :"User does not exists!"});
     const isPasswordCorrect = await user.comparePassword(password);
-    if(!isPasswordCorrect) return res.status(400).json({message:"Invalid credentials"});
+    if(!isPasswordCorrect) return res.status(401).json({message:"Invalid credentials"});
     const token = generateToken(user._id);
         res.status(201).json({
             token,

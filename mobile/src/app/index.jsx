@@ -5,7 +5,7 @@ export default function Index() {
   return (
     <View style={styles.container}>
       <Text>Developer Gos</Text>
-      <Link href="/(auth)/singup">SingUp</Link>
+      <Link href="/(auth)/singup">Sing Up</Link>
       <Link href="/(auth)/">Login</Link>
     </View>
   );
