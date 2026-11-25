@@ -17,9 +17,7 @@ export default function signup() {
         const handleSingup = async() =>{
               const result =await register(username , email, password) ;
               if(!result.success) Alert.alert("Error", result.error);
-    } 
-    console.log(user);
-    console.log(token);
+    }  
     return (
     <View style={styles.container}>
       <View style={styles.card}>
@@ -42,7 +40,7 @@ export default function signup() {
                 </Ionicons>
                 <TextInput 
                 style={styles.input}
-                placeholder='Mg Toe'
+                placeholder='Mg Toe Naing Win'
                 placeholderTextColor={COLORS.placeholderText}
                 value={username}
                 onChangeText={setUsername}

@@ -5,8 +5,11 @@ import bookRoutes from "./routes/bookRoutes.js"
 import cors from "cors"
 
 import { connectDB } from "./lib/db.js";
+import job from "./lib/cron.js"
 const app = express();
 const Port = process.env.PORT || 3000;
+
+job.start(); 
 app.use(express.json());
 app.use(cors());
 app.use("/api/auth/", authRoutes);
